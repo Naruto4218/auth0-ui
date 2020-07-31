@@ -1,7 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 
 class Login extends StatefulWidget {
   @override
@@ -104,7 +102,9 @@ class _LoginState extends State<Login> {
                               Padding(
                                   padding: EdgeInsets.fromLTRB(10, 20, 20, 10),
                                   child: RaisedButton(
-                                      onPressed: () {},
+                                      onPressed: () {
+                                        verifyOtp();
+                                      },
                                       color: Colors.teal,
                                       child: Padding(
                                           padding:
@@ -117,6 +117,7 @@ class _LoginState extends State<Login> {
                                                 'Continue',
                                                 style: TextStyle(
                                                   fontWeight: FontWeight.normal,
+                                                  fontFamily: 'Roboto',
                                                   fontSize: 20,
                                                   letterSpacing: 4,
                                                   color: Colors.white,
@@ -181,5 +182,11 @@ class _LoginState extends State<Login> {
         ),
       ),
     );
+  }
+
+  void verifyOtp(){
+    Map <String,String> m = {"name": "shubham"};
+    Navigator.pushNamed(context,'/verify-otp',arguments: m);
+    return;
   }
 }
